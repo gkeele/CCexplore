@@ -44,8 +44,8 @@ choice.lines <- c("CC039.Unc",
                   "CC022.GeniUnc", 
                   "CC021.Unc")
 
-all.eval <- eval.all.possible(allele.props.array=model.probs, fixed.set=include.lines, 
-			      choice.set=choice.lines, choice.select=3)
+all.eval <- eval.criteria(allele.props.array=model.probs, fixed.set=include.lines, 
+			  choice.set=choice.lines, choice.select=3)
 
 # Remove extreme imbalance
 extreme.sets <- all.eval$extreme.imbalance > 0
