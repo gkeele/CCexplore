@@ -40,9 +40,12 @@ mean.pairwise.L2norm <- function(allele.props.array, these.individuals="all"){
 
 ######### Run criteria for all choose(11, 5) = 462 possible sets
 #' @export
-eval.criteria <- function(allele.props.array, candidates, subset=5){
-  ## Evaluate all possible combinations
-  possible <- t(combn(x=candidates, m=subset))
+eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.select){
+  ## Evaluate all possible combinations of the lines that can vary
+  possible <- t(combn(x=choice.set, m=choice.select))
+  fixed <- matrix(fixed.set, nrow=1)[rep(1, nrow(possible)),]
+  possible <- cbind(fixed, possible)
+  
   number.imbalance <- number.extreme.imbalance <- number.wild.loss <- mean.wild <- mean.pwk_cast <- mean.L2norm <- rep(NA, nrow(possible))
   
   for(i in 1:nrow(possible)){
@@ -76,3 +79,5 @@ eval.criteria <- function(allele.props.array, candidates, subset=5){
               mean.pwk_cast=mean.pwk_cast,
               mean.L2norm=mean.L2norm))
 }
+
+
