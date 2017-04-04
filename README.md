@@ -13,6 +13,22 @@ install_github(“gkeele/CCexplore”)
 library(CCexplore)
 data(CC.probs)
 
+# Large set
+these.lines <- c("CC065.Unc", 
+                 "CC011.Unc", 
+                 "CC004.TauUnc", 
+                 "CC003.Unc", 
+                 "CC039.Unc", 
+                 "CC053.Unc", 
+                 "CC071.TauUnc", 
+                 "CC017.Unc", 
+                 "CC022.GeniUnc", 
+                 "CC021.Unc", 
+                 "CC058.Unc")
+
+candidate.allele.freq <- get.allele.freq(allele.props.array=CC.probs, these.individuals=these.lines)
+allele.freq.plot(allele.freq=candidate.allele.freq)
+
 # Include lines
 include.lines <- c("CC065.Unc", 
                    "CC011.Unc", 
@@ -28,6 +44,4 @@ choice.lines <- c("CC039.Unc",
                   "CC022.GeniUnc", 
                   "CC021.Unc")
 
-candidate.allele.freq <- get.allele.freq(allele.props.array=model.probs, these.individuals=these.lines)
-allele.freq.plot(allele.freq=candidate.allele.freq)
 ```
