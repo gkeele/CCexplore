@@ -46,6 +46,10 @@ mean_pairwise.L2norm <- function(allele.props.array, these.individuals="all"){
 ######### Run criteria for all choose(11, 5) = 462 possible sets
 #' @export
 eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.select){
+  # Number to select cannot be greater than the number of options
+  if(choice.select > length(choice.set)){
+    stop()
+  }
   ## Evaluate all possible combinations of the lines that can vary
   possible <- t(combn(x=choice.set, m=choice.select))
   fixed <- matrix(fixed.set, nrow=1)[rep(1, nrow(possible)),]
