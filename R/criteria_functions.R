@@ -68,7 +68,7 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
     this.set.wild.loss <- flag_wild.allele.loss(allele.freq=this.allele.freq)
     number.wild.loss[i] <- length(this.set.wild.loss)
     # Wild-derived allele mean total
-    this.set.wild.mean <- mean-wild.alleles(allele.freq=this.allele.freq)
+    this.set.wild.mean <- mean_wild.alleles(allele.freq=this.allele.freq)
     mean.wild[i] <- mean(this.set.wild.mean)
     # PWK & CAST allele mean total
     this.set.pwk_cast.mean <- mean_pwk_cast.alleles(allele.freq=this.allele.freq)
