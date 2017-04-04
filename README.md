@@ -13,10 +13,6 @@ install_github(“gkeele/CCexplore”)
 library(CCexplore)
 data(CC.probs)
 
-## Let's look at all the CC lines
-all.allele.freq <- get.allele.freq(allele.props.array= CC.probs)
-allele.freq.plot(allele.freq=all.allele.freq) # This may tick off your computer
-
 # Some lines
 these.lines <- c("CC065.Unc", 
                  "CC011.Unc", 
