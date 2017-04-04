@@ -2,4 +2,9 @@
 
 export(allele.freq.plot)
 export(eval.criteria)
+export(flag_allele.imbalance)
+export(flag_wild.allele.loss)
 export(get.allele.freq)
+export(mean_pairwise.L2norm)
+export(mean_pwk_cast.alleles)
+export(mean_wild.alleles)
