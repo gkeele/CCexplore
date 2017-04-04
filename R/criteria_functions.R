@@ -1,5 +1,6 @@
 ######### Criteria functions
 ## Produce list of loci that have allele with freq >= cut.off.freq for set
+#' @export
 flag.allele.imbalance <- function(allele.freq,
                                   cut.off.freq=0.5){
   flag.rows <- apply(allele.freq, 1, function(x) any(x >= cut.off.freq))
@@ -8,6 +9,7 @@ flag.allele.imbalance <- function(allele.freq,
 }
 
 ## Produce list of loci that have lost all wild-derived alleles for set
+#' @export
 flag.wild.allele.loss <- function(allele.freq){
   flag.rows <- apply(allele.freq, 1, function(x) any(x[c(6, 7, 8)] == 0))
   flag.loci <- rownames(allele.freq)[flag.rows]
@@ -15,18 +17,21 @@ flag.wild.allele.loss <- function(allele.freq){
 }
 
 ## Calculate mean wild-derived frequency for set
+#' @export
 mean.wild.alleles <- function(allele.freq){
   wild.mean <- apply(allele.freq, 1, function(x) mean(x[c(6, 7, 8)]))
   return(wild.mean)
 }
 
 ## Calculate mean PWK and CAST frequency for set
+#' @export
 mean.pwk_cast.alleles <- function(allele.freq){
   pwk_cast.mean <- apply(allele.freq, 1, function(x) mean(x[c(6, 7)]))
   return(pwk_cast.mean)
 }
 
 ## Calculate mean L2norm across pairs and all loci for set
+#' @export
 mean.pairwise.L2norm <- function(allele.props.array, these.individuals="all"){
   ## Grabbing some subset of individuals
   if(these.individuals[1] == "all"){
