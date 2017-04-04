@@ -67,6 +67,8 @@ all.checks <- as.numeric(!extreme.sets) + as.numeric(balanced.sets) + as.numeric
 table(all.checks)
 
 # Look at top sets
-top.sets <- which(all.checks == 5)
+top.sets <- which.max(all.checks)
 all.eval$possible[top.sets,]
+top.allele.freq <- get.allele.freq(allele.props.array=CC.probs, these.individuals=all.eval$possible[top.sets[1],])
+allele.freq.plot(allele.freq=top.allele.freq)
 ```
