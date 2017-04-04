@@ -9,7 +9,7 @@ Example data is included in the package - it is quite large - sorry. The followi
 
 ```r
 library(devtools)
-install_github(“gkeele/CCexplore”)
+install_github("gkeele/CCexplore")
 library(CCexplore)
 data(CC.probs)
 
