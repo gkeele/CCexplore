@@ -1,7 +1,7 @@
 CCexplore
 =========
 
-This a simple package with a specific purpose of selecting an optimal set of a specified number of CC mice from some specified subset of the available 73, based on a number of criterion. For example, selection the best 5 lines from 11 that are readily available based while maximizing genetic diversity and cumulative wild-derived allele frequencies.
+This a simple package with a specific purpose of selecting an optimal set of a specified number of CC lines from some specified subset of the "available" 73, based on a number of criterion. For example, selection the best 5 lines from 11 that are "readily available" based while maximizing genetic diversity and cumulative wild-derived allele frequencies.
 
 ## Example code
 
