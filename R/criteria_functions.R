@@ -55,7 +55,7 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
   }
   # Number to select cannot be greater than the number of options
   if(choice.select > length(choice.set)){
-    error.message <- "Selecting more lines than there are options"
+    error.message <- "Cannot select more lines than there are options"
     stop(error.message, call.=FALSE)
   }
   ## Evaluate all possible combinations of the lines that can vary
@@ -86,7 +86,7 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
     this.set.pwk_cast.mean <- mean_pwk_cast.alleles(allele.freq=this.allele.freq)
     mean.pwk_cast[i] <- mean(this.set.pwk_cast.mean)
     
-    cat(paste("Set", i, "out of", nrow(possible)), "\n")
+    cat(paste("Evaluating set", i, "out of", nrow(possible)), "possible sets", "\n")
   }
   return(list(possible=possible, 
               imbalance=number.imbalance,
