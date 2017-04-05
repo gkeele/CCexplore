@@ -46,8 +46,17 @@ mean_pairwise.L2norm <- function(allele.props.array, these.individuals="all"){
 ######### Run criteria for all choose(11, 5) = 462 possible sets
 #' @export
 eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.select){
+  # Check to see if fixed and choice are in the data
+  all.options <- c(fixed.set, choice.set)
+  if(!all(all.options %in% dimnames(allele.props.array)[[1]])){
+    cat(paste("Error:", 
+              paste(all.options[!(all.options %in% dimnames(allele.props.array)[[1]]]), collapse=", "),
+              "not in data"), "\n")
+    stop()
+  }
   # Number to select cannot be greater than the number of options
   if(choice.select > length(choice.set)){
+    cat("Error: Selecting more lines than there are options", "\n")
     stop()
   }
   ## Evaluate all possible combinations of the lines that can vary
