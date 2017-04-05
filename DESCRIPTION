@@ -4,7 +4,7 @@ Version: 0.1
 Authors@R: c(person("Lauren", "Donoghue", role = "aut"), 
              person("Gregory", "Keele", email = "gkeele@gmail.com", role = c("aut", "cre")))
 Description: This package includes genetic data (in the form of 8 founder haplotype reconstructions for 76689 loci) for 73 "available" CC lines. Given some subset of these 73 and some number of lines you want to select, this package provides functionality to select the best set that maximizes a number of criteria. 
-Depends: R (>= 3.3.2)
+Depends: R (>= 3.2.3)
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
