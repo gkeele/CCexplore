@@ -50,8 +50,9 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
   all.options <- c(fixed.set, choice.set)
   if(!all(all.options %in% dimnames(allele.props.array)[[1]])){
     cat(paste("Error:", 
-              paste(all.options[!(all.options %in% dimnames(allele.props.array)[[1]]), collapse=", "),
-              "not in data"), "\n")
+              paste(all.options[!(all.options %in% dimnames(allele.props.array)[[1]])], collapse=", "),
+              "not in data"), 
+        "\n")
     stop()
   }
   # Number to select cannot be greater than the number of options
