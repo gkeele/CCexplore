@@ -5,7 +5,7 @@ This a simple package with a specific purpose of selecting an optimal set of a s
 
 ## Example code
 
-Example data is included in the package - it is quite large - sorry. The following code services as a simple vignette for using the package for now.
+Example data set is included in the package - it is quite large - sorry. The following code services as a simple vignette for using the package for now.
 
 ```r
 library(devtools)
