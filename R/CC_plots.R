@@ -19,14 +19,16 @@ allele.freq.plot <- function(allele.freq,
   for(i in 2:ncol(allele.freq)) {
     plot.props[,i] <- rowSums(allele.freq[,c(1:i)])
   }
-  plot(x=positions, y=plot.props[,1], col='black', type='l', bty="n", 
-       ylim=c(0, 1), main=title, xlab="Position", xaxt="n", ylab="Set allele frequency", las=1)
-  points(x=positions, y=plot.props[,2], col='black', type='l', ylim=c(0,1))
-  points(x=positions, y=plot.props[,3], col='black', type='l', ylim=c(0,1))
-  points(x=positions, y=plot.props[,4], col='black', type='l', ylim=c(0,1))
-  points(x=positions, y=plot.props[,5], col='black', type='l', ylim=c(0,1))
-  points(x=positions, y=plot.props[,6], col='black', type='l', ylim=c(0,1))
-  points(x=positions, y=plot.props[,7], col='black', type='l', ylim=c(0,1))
+  plot(0, bty="n", pch="",
+       xlim=c(min(positions), max(positions)), ylim=c(0, 1), main=title, xlab="Position", xaxt="n", ylab="Set allele frequency", las=1)
+  # plot(x=positions, y=plot.props[,1], col='black', type='l', bty="n", 
+  #      ylim=c(0, 1), main=title, xlab="Position", xaxt="n", ylab="Set allele frequency", las=1)
+  #points(x=positions, y=plot.props[,2], col='black', type='l', ylim=c(0,1))
+  #points(x=positions, y=plot.props[,3], col='black', type='l', ylim=c(0,1))
+  #points(x=positions, y=plot.props[,4], col='black', type='l', ylim=c(0,1))
+  #points(x=positions, y=plot.props[,5], col='black', type='l', ylim=c(0,1))
+  #points(x=positions, y=plot.props[,6], col='black', type='l', ylim=c(0,1))
+  #points(x=positions, y=plot.props[,7], col='black', type='l', ylim=c(0,1))
   
   polygon(c(positions, rev(positions)), c(plot.props[,1], rep(0, length(positions))), col=colors[1], border=NA)
   for(i in 2:ncol(allele.freq)) {
