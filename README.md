@@ -74,5 +74,5 @@ allele.freq.plot(allele.freq=top.allele.freq)
 
 # Look at the kind of imbalance that is arising in a good set
 problem.sites <- flag_allele.imbalance(top.allele.freq)
-allele.freq.plot(allele.freq=top.allele.freq[problem.sites,])
+allele.freq.plot(allele.freq=top.allele.freq[problem.sites,], title="Imbalanced Sites")
 ```
