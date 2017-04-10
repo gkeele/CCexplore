@@ -71,4 +71,8 @@ top.sets <- which(all.checks == max(all.checks))
 all.eval$possible[top.sets,]
 top.allele.freq <- get.allele.freq(allele.props.array=CC.probs, these.individuals=all.eval$possible[top.sets[1],])
 allele.freq.plot(allele.freq=top.allele.freq)
+
+# Look at the kind of imbalance that is arising in a good set
+problem.sites <- flag_allele.imbalance(top.allele.freq)
+allele.freq.plot(allele.freq=top.allele.freq[problem.sites,])
 ```
