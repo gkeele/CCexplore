@@ -75,4 +75,12 @@ allele.freq.plot(allele.freq=top.allele.freq)
 # Look at the kind of imbalance that is arising in a good set
 problem.sites <- flag_allele.imbalance(top.allele.freq)
 allele.freq.plot(allele.freq=top.allele.freq[problem.sites,], title="Imbalanced Sites")
+
+## Look at sample realizations of haplotype probabilities
+# Max probability
+maxprobs.haps <- haplotypes.maxprob(probs.3D=CC.probs, set=all.eval$possible[top.sets,])
+allele.freq.plot(allele.freq=maxprobs.haps)
+# Random sampling from probabilities
+sample.haps <- haplotypes.sample(probs.3D = CC.probs, set=all.eval$possible[top.sets,], seed=1)
+allele.freq.plot(allele.freq= sample.haps)
 ```
