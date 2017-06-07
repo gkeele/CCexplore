@@ -65,8 +65,9 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
     stop(error.message, call.=FALSE)
   }
   ## Evaluate all possible combinations of the lines that can vary
-  possible <- t(combn(x=choice.set, m=choice.select))
-  fixed <- matrix(fixed.set, nrow=1)[rep(1, nrow(possible)),]
+  fixed <- possible <- NULL
+  if(!is.null(possible)){ possible <- t(combn(x=choice.set, m=choice.select)) }
+  if(!is.null(fixed)){ fixed <- matrix(fixed.set, nrow=1)[rep(1, nrow(possible)),] }
   possible <- cbind(fixed, possible)
   
   number.imbalance <- number.extreme.imbalance <- number.wild.loss <- mean.wild <- mean.pwk_cast <- mean.pwk <- mean.L2norm <- rep(NA, nrow(possible))
