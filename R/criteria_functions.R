@@ -43,7 +43,7 @@ mean_pairwise.L2norm <- function(allele.props.array, these.individuals="all"){
   if(these.individuals[1] == "all"){
     these.individuals <- dimnames(allele.props.array)[[1]]
   }
-  allele.props.array <- allele.props.array[these.individuals,,]
+  allele.props.array <- allele.props.array[these.individuals,,, drop=FALSE]
   
   L2norm <- mean(apply(allele.props.array, 3, function(x) mean(as.vector(dist(x, method="euclidean")))))
   return(L2norm)

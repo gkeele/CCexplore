@@ -7,17 +7,17 @@ get.allele.freq <- function(allele.props.array,
   if(these.individuals[1] == "all"){
     these.individuals <- dimnames(allele.props.array)[[1]]
   }
-  allele.props.array <- allele.props.array[these.individuals,,]
+  allele.props.array <- allele.props.array[these.individuals,,, drop=FALSE]
   ## Grabbing some subset of loci
   if(these.positions[1] == "all"){
     these.positions <- dimnames(allele.props.array)[[3]]
   }
-  allele.props.array <- allele.props.array[,,these.positions]
+  allele.props.array <- allele.props.array[,,these.positions, drop=FALSE]
   ## Thinning -- attempt to make plots that don't kill my computer
   if(!is.null(thin)){
     seq.loci <- 1:dim(allele.props.array)[3]
     keep <- seq.loci[seq(1, length(seq.loci), thin)]
-    allele.props.array <- allele.props.array[,,keep]
+    allele.props.array <- allele.props.array[,,keep, drop=FALSE]
   }
   
   # Taking allele frequencies at each locus
