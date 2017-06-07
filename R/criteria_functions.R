@@ -30,6 +30,12 @@ mean_pwk_cast.alleles <- function(allele.freq){
   return(pwk_cast.mean)
 }
 
+## Calculate mean PWK frequency for set
+mean_pwk.alleles <- function(allele.freq){
+  pwk.mean <- apply(allele.freq, 1, function(x) mean(x[7]))
+  return(pwk.mean)
+}
+
 ## Calculate mean L2norm across pairs and all loci for set
 #' @export
 mean_pairwise.L2norm <- function(allele.props.array, these.individuals="all"){
@@ -63,7 +69,7 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
   fixed <- matrix(fixed.set, nrow=1)[rep(1, nrow(possible)),]
   possible <- cbind(fixed, possible)
   
-  number.imbalance <- number.extreme.imbalance <- number.wild.loss <- mean.wild <- mean.pwk_cast <- mean.L2norm <- rep(NA, nrow(possible))
+  number.imbalance <- number.extreme.imbalance <- number.wild.loss <- mean.wild <- mean.pwk_cast <- mean.pwk <- mean.L2norm <- rep(NA, nrow(possible))
   
   for(i in 1:nrow(possible)){
     # L2norm
@@ -85,6 +91,9 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
     # PWK & CAST allele mean total
     this.set.pwk_cast.mean <- mean_pwk_cast.alleles(allele.freq=this.allele.freq)
     mean.pwk_cast[i] <- mean(this.set.pwk_cast.mean)
+    # PWK allele mean total
+    this.set.pwk.mean <- mean_pwk.alleles(allele.freq=this.allele.freq)
+    mean.pwk[i] <- mean(this.set.pwk.mean)
     
     cat(paste("Evaluating set", i, "out of", nrow(possible)), "possible sets", "\n")
   }
@@ -94,6 +103,7 @@ eval.criteria <- function(allele.props.array, fixed.set, choice.set, choice.sele
               wild.loss=number.wild.loss,
               mean.wild=mean.wild,
               mean.pwk_cast=mean.pwk_cast,
+              mean.pwk=mean.pwk,
               mean.L2norm=mean.L2norm))
 }
 
